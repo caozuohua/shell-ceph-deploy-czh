@@ -41,6 +41,7 @@ osd_pool_default_min_size='1'
 public_network='192.168.105.0/24'
 cluster_network='192.168.105.0/24'
 #osd_crush_chooseleaf_type=
+#filestore_xattr_use_omap=
 ##########################################################################
 
 
