@@ -1,24 +1,18 @@
 #!/bin/bash
-<<<<<<< HEAD
 #version: v4.2
 #time: 2016.12.6
 #author: me
 #update@ 2016.12.27
 #v1.0：创建——添加所有命令
-=======
 #version: v4.1
 #time: 2016.12.6
 #author: me
 #update@ 2016.12.22
->>>>>>> cb5cd608dc790cda6f38869c4bc76d71a5ed48df
 #v2.0：自动生成配置文件
 #v3.0：多mon部署
 #v4.0：单脚本部署
 #v4.1：配置文件内容重新定义
-<<<<<<< HEAD
 #v4.2：增加设置chooseleaf = [0,1]（支持单节点部署）；filestore xattr use omap = false（云一般是不使用rgw和mds）
-=======
->>>>>>> cb5cd608dc790cda6f38869c4bc76d71a5ed48df
 
 ##########################################################################
 #路径常量，一般不修改
@@ -50,11 +44,8 @@ osd_pool_default_size='2'
 osd_pool_default_min_size='1'
 public_network='192.168.105.0/24'
 cluster_network='192.168.105.0/24'
-<<<<<<< HEAD
 #osd_crush_chooseleaf_type=
 #filestore_xattr_use_omap=
-=======
->>>>>>> cb5cd608dc790cda6f38869c4bc76d71a5ed48df
 ##########################################################################
 
 
@@ -70,7 +61,6 @@ if [ ! -e ${cephconf} ];then
  echo 请确保/etc/ceph/ceph.conf文件存在！
  exit 1
 fi
-<<<<<<< HEAD
 if [ ${#all_node[@]} -eq '0' ]
 then 
  echo 请重新修改脚本文件配置项！
@@ -81,8 +71,6 @@ elif [ ${#all_node[@]} -eq '1' ]
 else
  osd_crush_chooseleaf_type='1'
 fi
-=======
->>>>>>> cb5cd608dc790cda6f38869c4bc76d71a5ed48df
 #---以下为配置文件必需的配置项---------------------------
 echo "[global]" > ${cephconf}
 echo "fsid = ${ceph_uuid}" >> ${cephconf}
@@ -96,12 +84,9 @@ echo "auth client required = ${auth_client_required}" >> ${cephconf}
 echo "log file = ${log_file}" >> ${cephconf}
 echo "osd pool default size = ${osd_pool_default_size}" >> ${cephconf}
 echo "osd pool default min size = ${osd_pool_default_min_size}" >> ${cephconf}
-<<<<<<< HEAD
 echo "filestore xattr use omap = false" >> ${cephconf}
 echo "osd crush chooseleaf type = ${osd_crush_chooseleaf_type}" >> ${cephconf}
-=======
 #echo "osd pool default pg num = ${osd_pool_default_pg_num}" >> ${cephconf}
->>>>>>> cb5cd608dc790cda6f38869c4bc76d71a5ed48df
 #echo "osd pool default pgp num = ${osd_pool_default_pgp_num}" >> ${cephconf}
 #echo "osd crush update on start  = ${osd_crush_update_on_start}" >> ${cephconf}
 #echo "[mon.a]" >> ${cephconf}
