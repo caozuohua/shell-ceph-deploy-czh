@@ -38,7 +38,7 @@ osd_node=('node1' 'node2' 'node3')
 #dev_list=('/dev/vda' '/dev/vdb' ...) (/dev/vda、/dev/vdb、...对应你每个osd节点上为osd准备的盘符)
 dev_list=('/dev/vda')
 #一般所有节点都会做osd。。。如果不是的话，请务必正确填写all_node变量的值，例如：all_node=('mon-node1' 'mom-node2' 'mon-node3' 'osd-node1' 'osd-node2' ...) （其中mon-node1等都是主机名）
-all_node=${osd_node[@]} 
+all_node=(${osd_node[@]})
 let osd_num=${#osd_node[@]}*${#dev_list[@]}
 let len=${mon_num}-1
 if [ -z `echo ${mon_node_ip}|cut -d \, -f ${len}` ] ##这个判断有问题，本意是想确保每个节点对应一个IP
