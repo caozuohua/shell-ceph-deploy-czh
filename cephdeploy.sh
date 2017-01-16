@@ -37,6 +37,7 @@ mon_num=${#mon_node[@]}
 osd_node=('node1' 'node2' 'node3')
 #dev_list=('/dev/vda' '/dev/vdb' ...) (/dev/vda、/dev/vdb、...对应你每个osd节点上为osd准备的盘符)
 dev_list=('/dev/vda')
+#一般所有节点都会做osd。。。如果不是的话，请务必正确填写all_node变量的值，例如：all_node=('mon-node1' 'mom-node2' 'mon-node3' 'osd-node1' 'osd-node2' ...) （其中mon-node1等都是主机名）
 all_node=${osd_node[@]} 
 let osd_num=${#osd_node[@]}*${#dev_list[@]}
 let len=${mon_num}-1
@@ -50,7 +51,7 @@ then
  echo osd数量至少应为2（对应至少两块硬盘）！！
  exit 1
 fi
-#请填写ceph.conf中要指定的配置项，根据实际情况修改
+############请填写ceph.conf中要指定的配置项，根据实际情况修改#############
 #一般默认3副本
 #pg数量确认公式：pg=(osd_num×100)/3
 #主要修改network
@@ -89,7 +90,7 @@ if [ ! -e ${cephconf} ];then
 fi
 if [ ${#all_node[@]} -eq '0' ]
 then 
- echo 请重新修改脚本文件配置项！
+ echo 请重新修改脚本文件配置项中all_node变量！
  exit 1
 elif [ ${#all_node[@]} -eq '1' ]
  then
