@@ -138,7 +138,7 @@ then
   do
    sleep 5
    echo mon节点${mon_add_node[${j}]}启动...
-   echo 创建mon.${mon_add_node[${j}]}]}目录
+   echo 创建mon.${mon_add_node[${j}]}目录
    ssh ${mon_add_node[${j}]} "mkdir -p ${ceph_var_dir}mon/ceph-${mon_add_node[${j}]} "
    echo 创建mon.${mon_add_node[${j}]}
    ssh ${mon_add_node[${j}]} "ceph-mon -i ${mon_add_node[${j}]} --mkfs"
